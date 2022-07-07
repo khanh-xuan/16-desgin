@@ -1,0 +1,35 @@
+.header {
+    position: fixed;
+    z-index: 1;
+    width: 30%;
+    height: $header-height;
+    background-color: transparent;
+
+    // @include tablet {
+    //     height: $header-tablet-height;
+    // }
+
+    @include mobile {
+        width: 100%;
+        height: $header-mobile-height;
+        background-color: white;
+
+        img {
+            max-width: 70%;
+        }
+    }
+
+    &__logo {
+        height: 100%;
+
+        a {
+            padding: 3rem 5rem;
+            @include flex(center, center);
+            height: 100%;
+
+            @include tablet {
+                padding: 3rem 3rem;
+            }
+        }
+    }
+}

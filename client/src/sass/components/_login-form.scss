@@ -1,0 +1,67 @@
+.login {
+    width: 100%;
+    margin-top: 3rem;
+    padding-right: 5vw;
+    padding-top: 9rem;
+    overflow: auto;
+    margin-left: 30%;
+
+    @include flex(flex-start, center);
+}
+
+.login__form {
+    @include flex(center, center);
+    flex-direction: column;
+    width: 100%;
+
+    h2 {
+        color: $main-color;
+        font-weight: 600;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+
+    form {
+        margin-top: 50px;
+        @include flex(center, center);
+        flex-direction: column;
+        width: 50%;
+
+        @include mobile {
+            margin-top: 30px;
+            width: 80%;
+        }
+
+        input {
+            height: 5vh;
+            width: 100%;
+            margin-top: 30px;
+
+            // border-radius: 10px;
+            border: solid 1px $main-color;
+            text-align: center;
+            &::placeholder {
+                color: $main-color;
+            }
+        }
+
+        button {
+            margin-top: 20px;
+            height: 5vh;
+            width: 100%;
+
+            background-color: $main-color;
+            border: 0;
+            outline: 0;
+            color: $btn-main-color;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        span {
+            color: #ff2f2f;
+        }
+    }
+}

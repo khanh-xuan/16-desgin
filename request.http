@@ -1,0 +1,103 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "16design",
+  "password": "16design@123"
+}
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "16design",
+  "password": "16design@123"
+}
+
+###
+POST http://localhost:5000/api/order
+Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjI4MjU2NDA3MjhhZmJiNTJiM2ZjZjUiLCJpYXQiOjE2NDY4MTc5MTJ9.XHHBofu67Izmj-7z9dt6E91lmsjaaosTz-qgzwW8e9I
+
+{
+  "name": "Nguyễn Xuân Khánh",
+  "add": "Hà Nội",
+  "sdt": "0123456789",
+  "product": ["ao so mi 03 - l - trang - 2","quan au - m - den - 5"],
+  "price": 4500000
+}
+
+
+###
+GET http://localhost:5000/api/order
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjI4MjU2NDA3MjhhZmJiNTJiM2ZjZjUiLCJpYXQiOjE2NDY4MTc5MTJ9.XHHBofu67Izmj-7z9dt6E91lmsjaaosTz-qgzwW8e9I
+
+
+###
+PUT http://localhost:5000/api/order/622b0249f782ab01d3d9be59
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjI4MjU2NDA3MjhhZmJiNTJiM2ZjZjUiLCJpYXQiOjE2NDY4MTc5MTJ9.XHHBofu67Izmj-7z9dt6E91lmsjaaosTz-qgzwW8e9I
+
+{
+  "name": "Nguyễn Xuân Khánh Xuân",
+  "add": "Đại Thịnh Hà Nội",
+  "sdt": "0123456789",
+  "email": "khanhxuan@gmail.com",
+  "product": ["ao so mi 03 - l - trang - 5","quan au - m - den - 5"],
+  "price": 500000,
+  "status":"thanh toan"
+}
+
+###
+DELETE http://localhost:5000/api/order/62287281b957fcaa1da48b48
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjI4MjU2NDA3MjhhZmJiNTJiM2ZjZjUiLCJpYXQiOjE2NDY4MTc5MTJ9.XHHBofu67Izmj-7z9dt6E91lmsjaaosTz-qgzwW8e9I
+
+
+###
+GET http://localhost:5000/api/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjI4MjU2NDA3MjhhZmJiNTJiM2ZjZjUiLCJpYXQiOjE2NDY5MDcxNzZ9.ZXfGkKVHLLrI0pvK8YvQVm7eCbguygGpRZrSSx92Pxw
+
+
+###
+GET http://localhost:5000/api/product
+
+
+###
+PUT http://localhost:5000/api/product/623a941b2f5541854d795452
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjI4MjU2NDA3MjhhZmJiNTJiM2ZjZjUiLCJpYXQiOjE2NDY5MDcxNzZ9.ZXfGkKVHLLrI0pvK8YvQVm7eCbguygGpRZrSSx92Pxw
+
+
+{
+  "title": "Nguyễn Xuân Khánh Xuân",
+  "image01": "hihihi.jpg",
+  "image02": "hihihihiihi",
+  "categorySlug":"ao-thun",
+  "colors": ["black","white"],
+  "size": ["m","xl"],
+  "price": 500000,
+  "status":"thanh toan",
+  "slug":"ao-thun-01",
+  "description":"hihihihii"
+}
+
+
+
+###
+GET http://localhost:5000/api/comments/624a636b385b7b4de35efd35
+Content-Type: application/json
+
+
+
+
+###
+POST http://localhost:5000/api/comments/624a636b385b7b4de35efd35
+Content-Type: application/json
+
+{
+  "name":"Dam van giap",
+  "rating":5,
+  "comment":"rat tot"
+}

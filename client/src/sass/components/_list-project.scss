@@ -1,0 +1,28 @@
+.list-project {
+    width: 100%;
+
+    h1 {
+        text-align: center;
+        color: $main-color;
+        font-size: 2rem;
+    }
+
+    table {
+        width: 100%;
+        text-align: center;
+        font-size: 1.25rem;
+
+        i {
+            font-size: 1.75rem;
+            cursor: pointer;
+        }
+    }
+
+    &__image {
+        width: 20%;
+    }
+
+    &__title {
+        width: 30%;
+    }
+}

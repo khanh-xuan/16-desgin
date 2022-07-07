@@ -1,0 +1,85 @@
+.blog__card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+
+    &__info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: white;
+        transform: translateY(20%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        padding: 4vw;
+
+        &__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+
+            @include mobile {
+                font-size: 1rem;
+                color: black;
+            }
+        }
+
+        &__date {
+            padding-top: 1rem;
+            font-size: 1rem;
+
+            @include mobile {
+                display: none;
+            }
+        }
+
+        &__description {
+            padding-top: 1rem;
+            font-size: 1.25rem;
+            line-height: 2rem;
+
+            @include mobile {
+                display: none;
+            }
+        }
+
+        @include mobile {
+            position: relative;
+            opacity: 1;
+            padding: 1vw;
+            transform: translateY(0);
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        transform: translateY(50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &:hover::before {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:hover &__info {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

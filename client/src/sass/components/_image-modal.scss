@@ -1,0 +1,107 @@
+.image-modal {
+    position: fixed;
+    z-index: 99;
+    padding-top: 2rem;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    // background-color: rgb(0, 0, 0);
+    background-color: rgba($color: #000000, $alpha: 0.8);
+
+    @include flex(flex-start, center);
+
+    &__close {
+        position: absolute;
+        right: 2rem;
+        top: 1rem;
+        font-size: 3rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    &__img {
+        @include flex(flex-start, space-between);
+        width: 100%;
+        height: 80%;
+
+        @include tablet {
+            align-items: center;
+        }
+
+        @include mobile {
+            align-items: center;
+        }
+
+        img {
+            max-height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        &__btn {
+            width: 5%;
+            height: 70%;
+            color: white;
+            @include flex(center, center);
+            cursor: pointer;
+            opacity: 0.5;
+            margin-top: 10%;
+
+            i {
+                font-size: 4rem;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__albums {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0 1vh;
+        line-height: 0;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        text-align: center;
+
+        &__item {
+            display: inline-block;
+            width: 10vh;
+            padding: 2vh 1vh;
+            box-sizing: content-box;
+            cursor: pointer;
+            opacity: 0.7;
+
+            &.active {
+                opacity: 1;
+                transform: scale(1.2);
+
+                img {
+                    border: solid 1px white;
+                }
+            }
+
+            img {
+                max-height: 100px;
+            }
+        }
+    }
+}

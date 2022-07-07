@@ -1,0 +1,61 @@
+.photo__card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    &__info {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        color: white;
+        text-align: right;
+        transform: translateY(80px);
+        // transform: translate3d(0px, 2vw, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+        //     skew(0deg, 0deg);
+        opacity: 0;
+        transition: all 0.5s ease;
+
+        &__name {
+            font-size: 1.25rem;
+            font-weight: 700;
+
+            @include mobile {
+                font-size: 1rem;
+            }
+        }
+
+        @include mobile {
+            opacity: 0.7;
+            transform: translateY(0);
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        transform: translateY(50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &:hover::before {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:hover &__info {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

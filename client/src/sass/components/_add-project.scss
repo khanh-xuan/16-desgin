@@ -1,0 +1,79 @@
+.add-project {
+    width: 100%;
+    padding: 1rem;
+    overflow: auto;
+
+    h1 {
+        color: $main-color;
+        margin-bottom: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: $main-color;
+        font-weight: normal;
+    }
+
+    form {
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+
+        label {
+            width: 100%;
+            padding-bottom: 1rem;
+            @include flex(center, space-between);
+
+            span {
+                font-size: 1.5rem;
+                color: $main-color;
+            }
+
+            input {
+                width: 80%;
+                height: 40px;
+                font-size: 1.25rem;
+                padding: 0 1rem;
+                border: none;
+                border-radius: 10px;
+            }
+
+            select {
+                width: 80%;
+                height: 40px;
+                font-size: 1.25rem;
+                padding: 0 1rem;
+                border: none;
+                border-radius: 10px;
+
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+        }
+
+        button {
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            font-size: 2rem;
+            padding: 6px 0;
+            font-weight: 600;
+            cursor: pointer;
+            border: solid 2px $main-color;
+            border-radius: 10px;
+            background-color: white;
+            color: $main-color;
+
+            &:hover {
+                background-color: $main-color;
+                color: white;
+            }
+        }
+
+        span.error {
+            width: 100%;
+            color: red;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+    }
+}

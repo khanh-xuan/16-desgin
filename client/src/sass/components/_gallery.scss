@@ -1,0 +1,6 @@
+.gallery {
+    &__img {
+        @include flex(center, space-between);
+        cursor: pointer;
+    }
+}

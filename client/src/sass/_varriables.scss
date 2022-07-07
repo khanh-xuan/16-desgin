@@ -1,0 +1,38 @@
+$main-bg: #fff;
+$main-color: #a91e23;
+
+$txt-main-color: #000;
+$txt-second-color: #8d8d8d;
+$txt-white: #fff;
+
+$btn-main-bg: $main-color;
+$btn-main-color: #fff;
+
+$header-height: 170px;
+$header-tablet-height: 70px;
+$header-mobile-height: 70px;
+$header-shrink-height: 80px;
+
+$box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+$colors: (
+    "xanh-duong": #4267b2,
+    "cam": #fbb96b,
+    "pink": #fe7e73,
+    "trang": #fff,
+    "den": #000,
+    "main": $main-color,
+    "do": #ff0000,
+    "yellow": rgb(236, 236, 0),
+    "xanh-la": rgb(141, 194, 141),
+    "nau": rgb(126, 91, 91),
+    "navy": navy,
+    "xam": gray,
+    "be": #ac9c85,
+    "reu": #83826e,
+);
+
+$mobile-width: 600px;
+$tablet-width: 1024px;
+
+$numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8);

@@ -1,0 +1,59 @@
+.admin {
+    width: 70%;
+    overflow: auto;
+    &__nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: auto;
+        bottom: 0;
+        z-index: 1;
+        // overflow: hidden;
+        width: 30%;
+        padding-left: 5rem;
+        padding-top: 1rem;
+        clear: none;
+        margin-top: $header-height;
+
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+        font-size: 1.5rem;
+
+        &.mobile {
+            display: none;
+
+            @include mobile {
+                display: unset;
+            }
+        }
+
+        @include tablet {
+            padding: 0 1rem;
+            margin-top: $header-height;
+        }
+
+        @include mobile {
+            margin-top: $header-mobile-height;
+            font-size: 1.25rem;
+            padding: 0 1rem;
+            width: 20%;
+        }
+
+        &__item {
+            margin-bottom: 10px;
+            cursor: pointer;
+
+            &:hover,
+            &.active {
+                color: $main-color;
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__container {
+        width: 100%;
+        margin-top: 3rem;
+        padding-right: 5vw;
+    }
+}

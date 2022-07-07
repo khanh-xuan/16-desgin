@@ -1,0 +1,99 @@
+.contact {
+    @include flex(flex-start, space-between);
+    width: 100%;
+    margin-top: 5vw;
+    margin-bottom: 2vh;
+
+    @include mobile {
+        flex-direction: column;
+    }
+
+    &__image {
+        width: 66%;
+
+        @include mobile {
+            width: 100%;
+            margin-bottom: 2vh;
+        }
+    }
+
+    &__info {
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+        width: 30%;
+
+        @include mobile {
+            width: 100%;
+        }
+
+        &__tel {
+            width: 100%;
+            @include flex(flex-start, flex-start);
+            flex-direction: column;
+
+            background-color: transparent;
+            font-family: Helveticaneue, sans-serif;
+            color: #393939;
+            font-size: 16px;
+            line-height: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+
+            a,
+            p {
+                margin-bottom: 1vw;
+                word-spacing: 3px;
+            }
+
+            margin-bottom: 2vw;
+
+            @include mobile {
+                margin-bottom: 2vh;
+            }
+        }
+
+        &__des {
+            @include flex(flex-start, flex-start);
+            flex-direction: column;
+            color: #393939;
+            font-size: 1.25rem;
+            line-height: 2rem;
+            letter-spacing: 0.3px;
+            word-spacing: 3px;
+
+            &__toggle {
+                width: 100%;
+                @include flex(center, flex-end);
+                font-size: 1.25rem;
+                cursor: pointer;
+                margin-bottom: 2rem;
+
+                i {
+                    font-size: 2rem;
+                }
+            }
+
+            &__content {
+                h1 {
+                    color: #393939;
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                    font-weight: 700;
+                    letter-spacing: 0.3px;
+                }
+
+                p {
+                    color: #393939;
+                    font-size: 1.25rem;
+                    line-height: 2rem;
+                    letter-spacing: 0.3px;
+                    word-spacing: 3px;
+
+                    @include mobile {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}
