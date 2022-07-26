@@ -4,6 +4,7 @@ import ProjectItem from './ProjectItem';
 
 const ListProject = () => {
     const projects = useSelector(state => state.project.projects);
+
     return (
         <div className='list-project'>
             <h1>Danh sách Project</h1>
