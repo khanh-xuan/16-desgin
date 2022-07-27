@@ -10,9 +10,9 @@ import draftToHtml from 'draftjs-to-html';
 import { API_URL } from '../constants/constants';
 import { useDispatch } from 'react-redux';
 import { LoadingActions } from '../redux/loading/loadingSlice';
-import { projectAction } from '../redux/project/projectSlice';
+import { blogAction } from '../redux/blog/blogSlice';
 
-const AddProject = () => {
+const AddBlog = () => {
     //text-edittor
     let _contentState = ContentState.createFromText('...');
     const raw = convertToRaw(_contentState)
@@ -31,15 +31,15 @@ const AddProject = () => {
             description
         }
 
-        const project = JSON.stringify(pj)
+        const blog = JSON.stringify(pj)
 
         const formData = new FormData();
         formData.append('image', data.image[0])
-        formData.set('project', project)
+        formData.set('blog', blog)
 
-        const addProject = async () => {
+        const addBlog = async () => {
             dispatch(LoadingActions.setLoading())
-            const res = await axios.post(`${API_URL}/project`, formData, {
+            const res = await axios.post(`${API_URL}/blog`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -47,12 +47,12 @@ const AddProject = () => {
 
             if (res.data.success) {
                 dispatch(LoadingActions.loadingSuccess())
-                dispatch(projectAction.addProject(res.data.project))
-                alert('Thêm Project thành công!')
+                dispatch(blogAction.addBlog(res.data.blog))
+                alert('Thêm Blog thành công!')
             }
         }
 
-        addProject()
+        addBlog()
     };
 
     return (
@@ -60,17 +60,17 @@ const AddProject = () => {
             <h1>Thêm Project mới</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="title">
-                    <span>Tên Project: </span>
+                    <span>Tiêu đề Blog: </span>
                     <input
                         id='title'
-                        placeholder='Tên của project'
+                        placeholder='Tiêu đề của blog'
                         {...register("title", { required: true })}
                     />
                 </label>
-                {errors.title && <span className='error'>Tên project không được để trống</span>}
+                {errors.title && <span className='error'>Tiêu đề của blog không được để trống</span>}
 
                 <label htmlFor="slug">
-                    <span>Slug Project: </span>
+                    <span>Slug Blog: </span>
                     <input
                         id='slug'
                         placeholder='Tên ngắn gọn'
@@ -78,45 +78,6 @@ const AddProject = () => {
                     />
                 </label>
                 {errors.slug && <span className='error'>Tên ngắn gọn không được để trống</span>}
-
-                <label htmlFor="add">
-                    <span>Địa điểm: </span>
-                    <input
-                        id='add'
-                        placeholder='Địa điểm'
-                        {...register("add", { required: true })}
-                    />
-                </label>
-                {errors.add && <span className='error'>Địa điểm không được để trống</span>}
-                <label htmlFor="year">
-                    <span>Năm: </span>
-                    <input
-                        id='year'
-                        placeholder='Năm hoàn thành'
-                        {...register("year", { required: true })}
-                    />
-                </label>
-                {errors.year && <span className='error'>Năm hoàn thành không được để trống</span>}
-
-                <label htmlFor="area">
-                    <span>Diện tích: </span>
-                    <input
-                        id='area'
-                        placeholder='Diện tích khu đất'
-                        {...register("area", { required: true })}
-                    />
-                </label>
-                {errors.area && <span className='error'>Diện tích không được để trống</span>}
-
-                <label htmlFor="type">
-                    <span>Loại hình dự án: </span>
-                    <select id='type' {...register("type", { required: true })}>
-                        <option value="archi">Kiến trúc</option>
-                        <option value="inter">Nội thất</option>
-                        <option value="land">Cảnh quan</option>
-                    </select>
-                </label>
-                {errors.type && <span className='error'>Loại hình dự án không được để trống</span>}
 
                 <label htmlFor="image">
                     <span>Hình Ảnh: </span>
@@ -128,7 +89,7 @@ const AddProject = () => {
                 </label>
                 {errors.image && <span className='error'>Hình ảnh không được để trống</span>}
 
-                <h3>Mô tả về dự án</h3>
+                <h3>Nội dung</h3>
                 <Editor
                     defaultContentState={contentState}
                     onContentStateChange={setContentState}
@@ -143,4 +104,4 @@ const AddProject = () => {
     )
 }
 
-export default AddProject
+export default AddBlog

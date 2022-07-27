@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux';
 import { AdminActions } from '../redux/admin/adminSlice';
+import { LoadingActions } from '../redux/loading/loadingSlice';
+import axios from 'axios';
+import { API_URL } from '../constants/constants';
+import { Link } from 'react-router-dom';
+import { projectAction } from '../redux/project/projectSlice';
 
 const ProjectItem = props => {
     const project = props.item;
@@ -12,8 +17,17 @@ const ProjectItem = props => {
         dispatch(AdminActions.setEdit(project));
     }
 
-    const handleDeleteProject = () => {
-        console.log('delete');
+    const handleDeleteProject = async () => {
+        if (window.confirm("bạn chắc chắn muốn xóa!")) {
+            dispatch(LoadingActions.setLoading());
+            const res = await axios.delete(`${API_URL}/project/${project._id}`)
+
+            if (res.data.success) {
+                dispatch(LoadingActions.loadingSuccess());
+                dispatch(projectAction.deleteProject(project._id))
+                alert("Xóa Project thành công!")
+            }
+        }
     }
 
     return (
@@ -21,7 +35,11 @@ const ProjectItem = props => {
             <td className='list-project__image'>
                 <img src={project.image} alt="" />
             </td>
-            <td className='list-project__title'>{project.title}</td>
+            <td className='list-project__title'>
+                <Link to={`/project/${project.slug}`}>
+                    {project.title}
+                </Link>
+            </td>
             <td>{project.year}</td>
             <td>{project.add}</td>
             <td>{project.area}</td>

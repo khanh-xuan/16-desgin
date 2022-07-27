@@ -8,7 +8,12 @@ import ListProject from '../components/ListProject';
 import { ACCESS_TOKEN_NAME, API_URL } from '../constants/constants';
 import { AdminActions } from '../redux/admin/adminSlice';
 import { loginActions } from '../redux/login/loginSlice';
-import setAuthToken from '../utils/setAuthToken'
+import setAuthToken from '../utils/setAuthToken';
+import { useNavigate } from "react-router-dom";
+import AddBlog from '../components/AddBlog';
+import ListBlog from '../components/ListBlog';
+import EditBlog from '../components/EditBlog';
+
 
 
 
@@ -16,6 +21,8 @@ const Admin = () => {
     // const [show, setShow] = useState('listProject');
 
     const show = useSelector(state => state.admin.show) || 'listProject'
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch()
 
@@ -36,6 +43,7 @@ const Admin = () => {
                 localStorage.removeItem('isAuthenticated')
                 setAuthToken(null)
                 dispatch(loginActions.loginFailed())
+                navigate("/login")
             }
         }
         loadUser()
@@ -62,6 +70,10 @@ const Admin = () => {
                     {show === 'addProject' && <AddProject />}
                     {show === 'listProject' && <ListProject />}
                     {show === 'editProject' && <EditProject />}
+                    {show === 'addBlog' && <AddBlog />}
+                    {show === 'listBlog' && <ListBlog />}
+                    {show === 'editBlog' && <EditBlog />}
+
                 </div>
             </div>
         </Helmet>

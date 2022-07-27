@@ -8,7 +8,7 @@ const PhotoCard = (props) => {
                 className="photo__card"
             >
                 <div className="photo__card__img">
-                    <img src={props.item.image} alt="" />
+                    <img loading='lazy' src={props.item.image} alt="" />
                 </div>
                 <div className="photo__card__info">
                     <div className="photo__card__info__name">{props.item.title}</div>

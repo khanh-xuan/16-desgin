@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const BlogCard = (props) => {
+    const date = new Date(props.item.createAt)
+
     return (
         <Link to={`/blog/${props.item.slug}`} className={`blog`}>
             <div className="blog__card">
@@ -10,8 +12,8 @@ const BlogCard = (props) => {
                 </div>
                 <div className="blog__card__info">
                     <div className="blog__card__info__title">{props.item.title}</div>
-                    <div className="blog__card__info__date">{props.item.date}</div>
-                    <div className="blog__card__info__description">{props.item.description}</div>
+                    <div className="blog__card__info__date">{date.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                    <div className="blog__card__info__description" dangerouslySetInnerHTML={{ __html: props.item.description }}></div>
                 </div>
             </div>
         </Link>

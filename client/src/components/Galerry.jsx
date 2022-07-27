@@ -35,7 +35,6 @@ const Gallerry = () => {
     const hiddenModel = (e) => {
         if (e.keyCode === 27 && model) {
             setModel(false);
-            console.log('hidden');
         }
     }
 

@@ -8,6 +8,7 @@ require('dotenv').config()
 
 const authRouter = require('./routes/auth')
 const projectRouter = require('./routes/project')
+const blogRouter = require('./routes/blog')
 const imageRouter = require('./routes/image')
 
 //connect mongooseDB
@@ -38,7 +39,9 @@ app.use(cors())
 
 app.use("/api/auth", authRouter)
 app.use("/api/project", projectRouter)
+app.use("/api/blog", blogRouter)
 app.use("/api/images", imageRouter)
+
 
 const PORT = process.env.PORT || 5000;
 

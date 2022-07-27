@@ -12,6 +12,7 @@ import htmlToDraft from 'html-to-draftjs';
 import { API_URL } from '../constants/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoadingActions } from '../redux/loading/loadingSlice';
+import { projectAction } from '../redux/project/projectSlice';
 
 const EditProject = () => {
     const project = useSelector(state => state.admin.edit)
@@ -63,6 +64,7 @@ const EditProject = () => {
 
             if (res.data.success) {
                 dispatch(LoadingActions.loadingSuccess())
+                dispatch(projectAction.updateProject(res.data.project))
                 alert('Sửa Project thành công!')
             }
         }
